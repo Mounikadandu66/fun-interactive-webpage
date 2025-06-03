@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffc7da;
+      padding: 100px;
+      color: #333;
+      background-image:url("https://img.freepik.com/free-vector/vibrant-pink-watercolor-painting-background_53876-58931.jpg") ;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    h1 {
+      text-align: center;
+      color: #d63384;
+    }
+    .quiz-container {
+      max-width: 500px;
+      height: 260px;
+      margin: auto;
+      background: #fec9e3;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(253, 104, 186, 0.977);
+    }
+    .question {
+      font-weight: bold;
+    }
+    #Tik
+    {
+      padding: 12px 24px;
+  background-color: #e3368c;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  margin: 30px auto 0;
+  cursor: pointer;
+  display: block; /* Makes margin auto work */
+  width: fit-content;
+
+    }
+    .option-button {
+  background-color: #d63384;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option-button:hover {
+  background-color: #ad1457;
+}
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Quiz Challenge</h1>
+  <br>
+  <div class="quiz-container">
+    <p class="question" id="question"></p>
+    <div id="options"></div>
+    <p id="result"></p>
+  </div>
+  <br>
+  
+     <script>
+  const quizData = [
+    {
+      question: "Which language is used for web apps?",
+      options: ["Python", "JavaScript", "C++", "Java"],
+      correct: "JavaScript"
+    },
+    {
+      question: "What does HTML stand for?",
+      options: ["HighText Machine Language", "HyperText Markup Language", "HyperLoop Machine Language", "None"],
+      correct: "HyperText Markup Language"
+    },
+    {
+      question: "CSS stands for?",
+      options: ["Cascading Style Sheets", "Creative Style Sheets", "Colorful Style Sheets", "Cool Style Sheet"],
+      correct: "Cascading Style Sheets"
+    },
+    {
+    question: "Which tag is used to create a drop-down list in HTML?",
+    options: ["<dropdown>", "<input type='list'>", "<select>", "<option>"],
+    correct: "<select>"
+  },
+  {
+    question: "What color will this CSS rule set? `color: #000;`",
+    options: ["White", "Black", "Red", "Transparent"],
+    correct: "Black"
+  }
+
+  ];
+
+  let current = 0;
+  let score = 0;
+
+  function loadQuiz() {
+    if (current >= quizData.length) {
+      document.querySelector(".quiz-container").innerHTML = `
+        <h2>🎉 Quiz Completed!</h2>
+        <p>Your Score: <strong>${score} / ${quizData.length}</strong></p>
+      `;
+      return;
+    }
+
+    const q = quizData[current];
+    document.getElementById("question").textContent = q.question;
+
+    const optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
+    document.getElementById("result").textContent = "";
+
+    q.options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.className = "option-button";
+      btn.textContent = opt;
+      btn.onclick = () => {
+        if (opt === q.correct) {
+          score++;
+          document.getElementById("result").textContent = "✅ Correct!";
+        } else {
+          document.getElementById("result").textContent = "❌ Incorrect!";
+        }
+
+        setTimeout(() => {
+          current++;
+          loadQuiz();
+        }, 900);
+      };
+      optionsDiv.appendChild(btn);
+    });
+  }
+
+
+    loadQuiz();
+</script>
+<button id="Tik" onclick="location.href='Task 3.html'">Back Home</button>
+
+</body>
+</html>

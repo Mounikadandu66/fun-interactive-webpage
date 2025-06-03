@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Wonders</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+      display: flex;
+      flex-direction: column;
+      background-image: url("https://img.freepik.com/premium-vector/global-technology-background_8188-588.jpg"); 
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      background: #1976d2;
+      color: white;
+      padding: 10px;
+      font-size: 2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .hero {
+      max-width: 450px;
+      height: 260px;
+      margin: auto;
+      background: #90caf9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(30, 136, 229, 0.733);
+    }
+
+    .hero button {
+      margin: 20px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      background: #1976d2;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: #0d47a1;
+      transform: scale(1.05);
+    }
+
+  
+  </style>
+</head>
+<body>
+
+  <header><i>Web Wonders Portal</i></header>
+
+  <div class="hero">
+    <center>
+      <h2>Choose your fun & skill zone:</h2>
+      <button onclick="location.href='quiz.html'">🧠 Take a Quiz</button>
+      <button onclick="location.href='jokes.html'">😂 Get a Joke</button>
+    </center>
+  </div>
+
+  
+</body>
+</html>
